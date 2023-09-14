@@ -51,6 +51,7 @@ hr {
 }
 
 #picking img {
+  cursor: pointer;
   width: 50px;
   margin-right: 35px;
   border-bottom: 2px solid rgba(128, 128, 128, 0);

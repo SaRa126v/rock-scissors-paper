@@ -23,19 +23,19 @@ userOptions.forEach((option) => {
     const optionId = option.getAttribute("data-id");
     switch (optionId) {
       case "handRock":
-        handImg.src = "assets/img/hand Rock.png" ;
+        handImg.src = "assets/img/handRock.png" ;
         handText.textContent = "Rock";
         compareChoices("handRock");
         break;
 
       case "handPaper":
-        handImg.src = "assets/img/hand Paper.png" ;
+        handImg.src = "assets/img/handPaper.png" ;
         handText.textContent = "Paper";
         compareChoices("handPaper");
         break;
 
       case "handScissors":
-        handImg.src = "assets/img/hand Scissors.png" ;
+        handImg.src = "assets/img/handScissors.png" ;
         handText.textContent = "Scissors";
         compareChoices("handScissors");
         break;
@@ -48,7 +48,7 @@ userOptions.forEach((option) => {
 
 function catChoice() {
   // array of cat options
-  const catChoices = ["paw Rock", "paw Paper", "paw Scissors"];
+  const catChoices = ["pawRock", "pawPaper", "pawScissors"];
 
   // make a random selection from the array
   const randomNum = Math.floor(Math.random() * 3);
@@ -58,7 +58,7 @@ function catChoice() {
 
   // show the choice under its pic
     pawImg.src = `assets/img/${catChoices[randomNum]}.png`;
-    pawText.textContent = catChoices[randomNum].replace("paw ","");
+    pawText.textContent = catChoices[randomNum].replace("paw","");
 
   pawImg.style.width = "80px";
 
@@ -68,22 +68,21 @@ function catChoice() {
 // comparing user & cat choices.........................
 
 function compareChoices(userChoice) {
-  const catChoicee = catChoice();
 
-  switch (userChoice + catChoicee) {
-    case "handRock" + "paw Scissors":
-    case "handScissors" + "paw Paper":
-    case "handPaper" + "paw Rock":
+  switch (userChoice + catChoice()) {
+    case "handRock" + "pawScissors":
+    case "handScissors" + "pawPaper":
+    case "handPaper" + "pawRock":
       win();
       break;
     case "handRock" + "pawPaper":
-    case "handScissors" + "paw Rock":
-    case "handPaper" + "paw Scissors":
+    case "handScissors" + "pawRock":
+    case "handPaper" + "pawScissors":
       lose();
       break;
-    case "handRock" + "paw Rock":
-    case "handScissors" + "paw Scissors":
-    case "handPaper" + "paw Paper":
+    case "handRock" + "pawRock":
+    case "handScissors" + "pawScissors":
+    case "handPaper" + "pawPaper":
       draw();
       break;
   }
@@ -166,11 +165,3 @@ if (userScore < 10) {
     status.textContent = "You are lucky!" ;
 }
 }
-
-const confirm = document.querySelector("#confirm");
-
-confirm.addEventListener('click', ()=>{
-// refresh everything
-location.reload()
-})
-
