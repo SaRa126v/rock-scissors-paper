@@ -119,7 +119,7 @@ function draw() {
 // timer..............................................
 
 // start the time after a sec
-const interval = setInterval(countDown, 1000);
+const interval = setInterval(countDown, 1000); 
 
 // 10 min / each min is 60 sec
 let time = 1 * 60;
@@ -173,9 +173,8 @@ if (userScore < 10) {
 const confirm = document.querySelector("#confirm");
 
 confirm.addEventListener('click', ()=>{
-    modal.classList.add("hidden");
-    modal.style.display = 'none';   
-    overlay.classList.add("hidden");   
+// refresh everything
+location.reload()
 })
 
 // اروم تر ظاهر شن*****************
