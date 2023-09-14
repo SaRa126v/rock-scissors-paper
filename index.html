@@ -4,85 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Insurance</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section id="top">
-      <!-- title -->
-      <div id="title">
-        <h1>Car Insurance</h1>
-        <img src="img/car-insurance-2224893-1850715.png" />
-      </div>
+<div id="container">
+      <header>
+        <div>
+          <h1>You</h1>
+          <p>Score: <span id="userScore">0</span></p>
+        </div>
 
-      <!-- form -->
-      <div id="quoteForm">
-        <form action="#">
-          <label for="cars">Model:</label>
-          <select id="cars">
-            <option> Dodge Demon </option>
-            <option> chevrolet camaro </option>
-            <option> ford mustang </option>
-          </select>
+<h2 id="timer">01:00</h2>
 
-<br>
+        <div>
+          <h1>Cat</h1>
+          <p>Score: <span id="catScore">0</span></p>
+        </div>
+      </header>
 
-          <label for="year">Year:</label>
-          <select id="years">
-            <option> 1402 </option>
-            <option> 1401 </option>
-            <option> 1400 </option>
-            <option> 1399 </option>
-            <option> 1398 </option>
-            <option> 1397 </option>
-            <option> 1396 </option>
-            <option> 1395 </option>
-            <option> 1394 </option>
-            <option> 1393 </option>
-            <option> 1392 </option>
-            <option> 1391 </option>
-            <option> 1390 </option>
-            <option> 1389 </option>
-            <option> 1388 </option>
-            <option> 1387 </option>
-            <option> 1386 </option>
-            <option> 1385 </option>
-            <option> 1384 </option>
-            <option> 1383 </option>
-          </select>
+<hr>
 
-          <div class="checkboxText">
-            <input class="checkbox" type="checkbox" />
-            <span>Casualty Insurance</span>
-          </div>
-          <div class="checkboxText">
-            <input class="checkbox" type="checkbox" />
-            <span>Collision Insurance</span>
-          </div>
-
-          <br />
-          <button type="submit">Get a Quote</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- factor -->
-    <section id="factor">
+      <section id="competition">
       <div>
-        <p>Here is your quote!</p>
-        <h1>?</h1>
-        <p>Annual Package</p>
+        <img src="assets/img/queston marks.png" alt="your choice">
+        <p id="handText">Deciding...</p>
       </div>
 
       <div>
-        <p><span> Model: </span><span>?</span></p>
-        <p><span> Year: </span><span>?</span></p>
-        <p>?</p>
+        <img id="pawImg" src="assets/img/queston marks.png" alt="cat choice">
+        <p id="pawText">Deciding...</p>
       </div>
-
-      <br />
-      <button id="buy" type="submit">Buy</button>
     </section>
+
+    <section id="report">
+            <h2>who will win?</h2>
+    </section>
+
+  <hr>
+  
+    <section id="picking">
+      <h3>Decide your fate and let the games begin!</h2>
+        <div>
+        <img data-id="handRock" src="assets/img/hand Rock.png" alt="Rock">
+        <img data-id="handPaper" src="assets/img/hand Paper.png" alt="Paper">
+        <img data-id="handScissors" src="assets/img/hand Scissors.png" alt="Scissors"> 
+        </div>
+      </section>
+    </div>
+
+<!-- result modal -->
+
+<div id="modal" class="hidden">
+  <h2>Your final result is <span id="finalScore"></span>.</h2>
+  <h3 id="status"></h3>
+<button id="confirm" class="button-56" role="button">Ok</button>
+</div>
+
+<div id="overlay" class="hidden"></div>
+
 
     <script src="script.js"></script>
   </body>
