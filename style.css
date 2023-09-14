@@ -109,7 +109,9 @@ hr {
 #status {
   color: #a7361d;
 }
-
+ a {
+  text-decoration: none;
+ }
 /* copied button style................................ */
 .button-56 {
   align-items: center;
