@@ -16,24 +16,31 @@
 
 const userOptions = document.querySelectorAll("#picking img");
 const handText = document.querySelector("#handText");
+const handImg = document.querySelector("#handImg");
 
 userOptions.forEach((option) => {
   option.addEventListener("click", () => {
     const optionId = option.getAttribute("data-id");
     switch (optionId) {
       case "handRock":
+        handImg.src = "assets/img/hand Rock.png" ;
         handText.textContent = "Rock";
         compareChoices("handRock");
         break;
+
       case "handPaper":
+        handImg.src = "assets/img/hand Paper.png" ;
         handText.textContent = "Paper";
         compareChoices("handPaper");
         break;
+
       case "handScissors":
+        handImg.src = "assets/img/hand Scissors.png" ;
         handText.textContent = "Scissors";
         compareChoices("handScissors");
         break;
     }
+    handImg.style.width = "70px";
   });
 });
 
@@ -41,7 +48,7 @@ userOptions.forEach((option) => {
 
 function catChoice() {
   // array of cat options
-  const catChoices = ["pawRock", "pawPaper", "pawScissors"];
+  const catChoices = ["paw Rock", "paw Paper", "paw Scissors"];
 
   // make a random selection from the array
   const randomNum = Math.floor(Math.random() * 3);
@@ -50,43 +57,33 @@ function catChoice() {
   const pawText = document.querySelector("#pawText");
 
   // show the choice under its pic
-  if (catChoices[randomNum] === "pawRock") {
-    pawImg.src = "assets/img/paw Rock.png";
-    pawText.textContent = "Rock";
-    catChoice = catChoices[randomNum];
-  } else if (catChoices[randomNum] === "pawPaper") {
-    pawImg.src = "assets/img/paw Paper.png";
-    pawText.textContent = "Paper";
-    catChoice = catChoices[randomNum];
-  } else if (catChoices[randomNum] === "pawScissors") {
-    pawImg.src = "assets/img/paw Scissors.png";
-    pawText.textContent = "Scissors";
-    catChoice = catChoices[randomNum];
-  }
+    pawImg.src = `assets/img/${catChoices[randomNum]}.png`;
+    pawText.textContent = catChoices[randomNum].replace("paw ","");
+
   pawImg.style.width = "80px";
 
-  return catChoice;
+  return catChoices[randomNum];
 }
 
 // comparing user & cat choices.........................
 
 function compareChoices(userChoice) {
-  const catChoice = catChoice();
+  const catChoicee = catChoice();
 
-  switch (userChoice && catChoice) {
-    case "handRock" && "pawScissors":
-    case "handScissors" && "pawPaper":
-    case "handPaper" && "pawRock":
+  switch (userChoice + catChoicee) {
+    case "handRock" + "paw Scissors":
+    case "handScissors" + "paw Paper":
+    case "handPaper" + "paw Rock":
       win();
       break;
-    case "handRock" && "pawPaper":
-    case "handScissors" && "pawRock":
-    case "handPaper" && "pawScissors":
+    case "handRock" + "pawPaper":
+    case "handScissors" + "paw Rock":
+    case "handPaper" + "paw Scissors":
       lose();
       break;
-    case "handRock" && "pawRock":
-    case "handScissors" && "pawScissors":
-    case "handPaper" && "pawPaper":
+    case "handRock" + "paw Rock":
+    case "handScissors" + "paw Scissors":
+    case "handPaper" + "paw Paper":
       draw();
       break;
   }
@@ -177,4 +174,3 @@ confirm.addEventListener('click', ()=>{
 location.reload()
 })
 
-// اروم تر ظاهر شن*****************
